@@ -32,7 +32,7 @@ namespace Generics
             return obj;
         }
 
-		public Dictionary<Guid, T> GetPairs<T>()
+        public Dictionary<Guid, T> GetPairs<T>()
             where T : class, new()
         {
             Dictionary<Guid, T> pairs = new Dictionary<Guid, T>();
