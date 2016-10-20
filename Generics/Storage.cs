@@ -32,14 +32,14 @@ namespace Generics
             return obj;
         }
 
-        public IEnumerable<KeyValuePair<Guid, T>> GetPairs<T>()
+		public Dictionary<Guid, T> GetPairs<T>()
             where T : class, new()
         {
-            List<KeyValuePair<Guid, T>> pairs = new List<KeyValuePair<Guid, T>>();
+            Dictionary<Guid, T> pairs = new Dictionary<Guid, T>();
             List<Guid> ids = ObjectTypes[typeof(T)];
             foreach (Guid id in ids)
             {
-                pairs.Add(new KeyValuePair<Guid, T>(id, (T)Database[id]));
+                pairs.Add(id, (T)Database[id]);
             }
             return pairs;
         }
