@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Generics
 {
-    class GUID
+    class Storage
     {
         private Dictionary<Guid, Object> Database;
         private Dictionary<Type, List<Guid>> ObjectTypes;
 
-        public GUID()
+        public Storage()
         {
             Database = new Dictionary<Guid, object>();
             ObjectTypes = new Dictionary<Type, List<Guid>>();
@@ -32,7 +32,7 @@ namespace Generics
             return obj;
         }
 
-        public List<KeyValuePair<Guid, T>> GetPairs<T>()
+        public IEnumerable<KeyValuePair<Guid, T>> GetPairs<T>()
             where T : class, new()
         {
             List<KeyValuePair<Guid, T>> pairs = new List<KeyValuePair<Guid, T>>();
